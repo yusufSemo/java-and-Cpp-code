@@ -23,7 +23,7 @@ public class LibraryManager {
             bookIndex = scanner.nextInt();
             scanner.nextLine();
         } catch(InputMismatchException e){
-            System.out.println("Invalid input. put a number that is available");
+            System.out.println("Invalid input. put a number that is valid, not a word");
         }
         System.out.printf("Who are you? ");
         String name = scanner.nextLine();
