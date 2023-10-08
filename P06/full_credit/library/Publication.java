@@ -37,7 +37,11 @@ public class Publication {
             throw new IllegalArgumentException("CopyRight year is not between 1900 and this year");
         }
     }
-
+/**
+ *  creates a Publication instance with Buffered Reader
+ * @param br        the buffered reader for the publication
+ * @since           1.0
+*/ 
     public Publication(BufferedReader br) throws IOException{
         this.br = br;
         this.title = br.readLine();
@@ -52,6 +56,11 @@ public class Publication {
             this.dueDate = null;
         }
     }
+/**
+ *  saves a publication to a file with Buffered Writer
+ * @param bw        writes to the file info on the publication
+ * @since           1.0
+*/ 
     public void save(BufferedWriter bw) throws IOException {
         
         bw.write(title);

@@ -24,7 +24,11 @@ public class Library {
     public Library(String name){
         this.name = name;
     }
-
+/**
+ *  creates a Library instance with Buffered Reader
+ * @param br        the buffered reader for the library
+ * @since           1.0
+*/ 
     public Library(BufferedReader br) throws IOException {
     this.name = br.readLine();
     int numPublications = Integer.parseInt(br.readLine());
@@ -40,7 +44,11 @@ public class Library {
         publications.add(publication);
     }
 }
-
+/**
+ *  saves a Library to a file with Buffered Writer
+ * @param bw        writes to the file info of the Library
+ * @since           1.0
+*/ 
     public void save(BufferedWriter bw) throws IOException {
         bw.write(name);
         bw.newLine();

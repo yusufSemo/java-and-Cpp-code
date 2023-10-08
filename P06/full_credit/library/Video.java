@@ -30,11 +30,21 @@ public class Video extends Publication {
         this.runtime = Duration.ofMinutes(runtime);
         }
     }
+/**
+ *  creates a Video instance with Buffered Reader
+ * @param br        the buffered reader for the Video
+ * @since           1.0
+*/ 
      public Video(BufferedReader br) throws IOException {
         super(br);
         int runtimeMinutes = Integer.parseInt(br.readLine());
         this.runtime = Duration.ofMinutes(runtimeMinutes);
     }
+/**
+ *  saves a vidoe to a file with Buffered Writer
+ * @param bw        writes to the file info on the Video
+ * @since           1.0
+*/ 
      @Override
     public void save(BufferedWriter bw) throws IOException {
         super.save(bw);
