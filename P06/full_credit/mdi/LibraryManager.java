@@ -1,5 +1,10 @@
 package mdi;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.Console;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 import library.Library;
@@ -13,6 +18,27 @@ public class LibraryManager {
     
     public LibraryManager(Library library) {
         this.library = library;
+    }
+    public void saveLibrary() {
+        String filename = System.console().readLine("Enter the name of the file to save the library: ");
+        
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename))) {
+            library.save(bw);
+            System.out.println("Library saved successfully to " + filename);
+        } catch (IOException e) {
+            System.err.println("Error - Unable to save library to " + filename + ": " + e.getMessage());
+        }
+    }
+
+    public void openLibrary() {
+        String filename = System.console().readLine("Enter the name of the file to open: ");
+        
+        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+            library = new Library(br);
+            System.out.println("Library opened successfully from " + filename);
+        } catch (IOException e) {
+            System.err.println("Error - Unable to open library from " + filename + ": " + e.getMessage());
+        }
     }
     // 1)List the publications in your library 
     public void listPublications(){
@@ -61,7 +87,7 @@ public class LibraryManager {
             try {
             System.out.printf("\n== Menu ==\n\n");
             System.out.println(name+ System.lineSeparator());
-            System.out.printf("0) Exit\n1) List\n2) Add Publication\n3) Add Video\n4) Check out\n5) Check in\n");
+            System.out.printf("0) Exit\n1) List\n2) Add Publication\n3) Add Video\n4) Check out\n5) Check in\n6) Save Library\n7) Open Library");
             System.out.print(System.lineSeparator() + "Seletion: ");
             in = input1.nextInt();
             input1.nextLine();
@@ -75,6 +101,10 @@ public class LibraryManager {
                 libMan.checkOutPublication();
             }if(in == 5){
                 libMan.checkInPublication();
+            }if (in == 6) {
+                libMan.saveLibrary(); // Add Save option
+            } if (in == 7) {
+                libMan.openLibrary(); // Add Open option
             }} catch (Exception e) {
                 System.err.println("Error - " + e.getMessage());
             }

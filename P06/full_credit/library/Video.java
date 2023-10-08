@@ -1,4 +1,7 @@
 package library;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.time.Duration;
 /**
  * Models a Publication.
@@ -26,6 +29,17 @@ public class Video extends Publication {
         }else{
         this.runtime = Duration.ofMinutes(runtime);
         }
+    }
+     public Video(BufferedReader br) throws IOException {
+        super(br);
+        int runtimeMinutes = Integer.parseInt(br.readLine());
+        this.runtime = Duration.ofMinutes(runtimeMinutes);
+    }
+     @Override
+    public void save(BufferedWriter bw) throws IOException {
+        super.save(bw);
+        bw.write(""+ runtime.toMinutes() + "");
+        bw.newLine();
     }
     /**
      * returns a String that gives information on the video

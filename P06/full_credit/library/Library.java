@@ -1,4 +1,7 @@
 package library;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 /**
  * Models a Publication.
@@ -21,6 +24,40 @@ public class Library {
     public Library(String name){
         this.name = name;
     }
+
+    public Library(BufferedReader br) throws IOException {
+    this.name = br.readLine();
+    int numPublications = Integer.parseInt(br.readLine());
+    publications = new ArrayList<>();
+    for (int i = 0; i < numPublications; i++) {
+        String type = br.readLine();
+        Publication publication;
+        if (type.equals("video")) {
+            publication = new Video(br);
+        } else {
+            publication = new Publication(br);
+        }
+        publications.add(publication);
+    }
+}
+
+    public void save(BufferedWriter bw) throws IOException {
+        bw.write(name);
+        bw.newLine();
+        bw.write(Integer.toString(publications.size()));
+        bw.newLine();
+        for (Publication publication : publications) {
+            if (publication instanceof Video) {
+                bw.write("video");
+                bw.newLine();
+            } else {
+                bw.write("publication");
+                bw.newLine();
+            }
+            publication.save(bw);
+        }
+    }
+
 /**
  * adds a publication to the Library
  * @param publication    the publication that you want to add

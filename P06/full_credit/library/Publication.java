@@ -43,19 +43,17 @@ public class Publication {
         this.title = br.readLine();
         this.author = br.readLine();
         this.copyright = Integer.parseInt(br.readLine());
-
-        // Read the check-in/check-out status
         String status = br.readLine();
         if (status.equals("checked out")) {
             this.loanedTo = br.readLine();
-            this.dueDate = LocalDate.parse(br.readLine()); // Parse LocalDate from String
+            this.dueDate = LocalDate.parse(br.readLine());
         } else {
             this.loanedTo = null;
             this.dueDate = null;
         }
     }
     public void save(BufferedWriter bw) throws IOException {
-        // Write title, author, and copyright to the stream
+        
         bw.write(title);
         bw.newLine();
         bw.write(author);
@@ -63,7 +61,6 @@ public class Publication {
         bw.write(Integer.toString(copyright));
         bw.newLine();
 
-        // Check if the Publication is checked in or checked out
         if (loanedTo == null) {
             bw.write("checked in");
             bw.newLine();
