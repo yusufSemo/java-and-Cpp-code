@@ -74,7 +74,7 @@ public class WordSearch {
         // Solve all puzzles
         List<Thread> threads = new ArrayList<>();
         for (int i = 0; i < NUM_THREADS; i++) {
-            final int Index = i;
+            final int Index = i; //was throwing an error when I didnt put a final
             int firstPuzzle = Index * (NUM_PUZZLES / NUM_THREADS);
             int lastPuzzlePlusOne = (Index + 1) * (NUM_PUZZLES / NUM_THREADS);
             Thread thread = new Thread(() -> solve(Index, firstPuzzle, lastPuzzlePlusOne));
@@ -102,7 +102,6 @@ public class WordSearch {
                     Solution s = solver.solve(word);
                     if (s == null) System.err.println("#### Failed to solve " + p.name() + " for '" + word + "'");
                     else {
-                        // Add the solution to the TreeMap under the puzzle name
                         solutions.computeIfAbsent(p.name(), k -> new ArrayList<>()).add(s);
                     }
                 } catch (Exception e) {
