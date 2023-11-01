@@ -1,11 +1,17 @@
 #include <iostream>
 #include <string>
+#include <vector>
+#include "Shape.h"
 #include "Circle.h"
 #include "hexagon.h"
 
 int main(void){
+    std::vector<Shape*> shapes;
     hexagon pol(6.0);
-    std::cout<<pol.to_string()<<std::endl;
     Circle cir(6.0);
-    std::cout<<cir.to_string()<<std::endl;
+    shapes.push_back(&pol);
+    shapes.push_back(&cir);
+    for (Shape* shape : shapes) {
+        std::cout << shape->to_string() << std::endl;
+    }
 }
