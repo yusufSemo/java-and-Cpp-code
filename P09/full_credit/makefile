@@ -11,3 +11,4 @@ Shapes.o: Shapes.cpp *.h
 	$(CXX) $(CXXFLAGS) -c Shapes.cpp -o Shapes.o
 clean:
 	rm -f *.o *.gch *~ a.out shapes
+

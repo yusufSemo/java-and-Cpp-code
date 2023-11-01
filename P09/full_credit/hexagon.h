@@ -12,4 +12,5 @@ class hexagon : public Shape{
         std::string name() override;
         double area() override;
 };
+
 #endif
