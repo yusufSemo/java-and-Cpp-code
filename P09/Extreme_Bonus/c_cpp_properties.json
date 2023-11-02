@@ -4,11 +4,11 @@
             "name": "Mac",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/opt/homebrew/include",  // Include the GTKmm include path
+                "/opt/homebrew/include"
             ],
             "defines": [],
             "macFrameworkPath": [
-                "/opt/homebrew/lib",  // Include the GTKmm library path
+                "/opt/homebrew/lib"  
             ],
             "compilerPath": "/usr/bin/clang",
             "cStandard": "c17",
