@@ -4,17 +4,19 @@
             "name": "Mac",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/opt/homebrew/include"
+                "/opt/homebrew/include",
+                "/opt/homebrew/Cellar/gtkmm/2.24.5_8",
+                "/opt/homebrew/Cellar/gtkmm/2.24.5_8/include/gtkmm-2.4",
+                "/opt/homebrew/Cellar/glibmm@2.66/2.66.6/include/glibmm-2.4"
             ],
             "defines": [],
             "macFrameworkPath": [
-                "/opt/homebrew/lib"  
+                "/opt/homebrew/lib"
             ],
             "compilerPath": "/usr/bin/clang",
             "cStandard": "c17",
             "cppStandard": "c++17",
-            "intelliSenseMode": "clang-x64",
-            "compileCommands": "${workspaceFolder}/build/compile_commands.json"
+            "intelliSenseMode": "clang-x64"
         }
     ],
     "version": 4
