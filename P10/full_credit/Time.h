@@ -1,6 +1,7 @@
 #ifndef TIME_H
 #define TIME_H
 #include <iostream>
+#include <iomanip>
 class Time {
     private:
         int _hour;
@@ -14,5 +15,14 @@ class Time {
         Time operator + (Time time);
         Time& operator++();
         Time operator++(int);
+        bool operator==(Time& time);
+        bool operator!=( Time& time);
+        bool operator>=( Time& time);
+        bool operator<=( Time& time);
+        bool operator>( Time& time);
+        bool operator<( Time& time);
+        friend std::ostream& operator<<(std::ostream& os, const Time& time);
+        friend std::istream& operator>>(std::istream& is, Time& time);
+
 };
 #endif
