@@ -10,7 +10,7 @@ private:
     int _line;
 
 public:
-    Location(const std::string filename, int line);
+    Location( std::string filename, int line);
     
     bool operator<(const Location& rhs) const;
     bool operator==(const Location& rhs) const;
@@ -19,7 +19,7 @@ public:
     bool operator>(const Location& rhs) const;
     bool operator>=(const Location& rhs) const;
 
-    friend std::ostream& operator<<(std::ostream& os, const Location& loc);
+    friend std::ostream& operator<<(std::ostream& os,const Location& loc);
 };
 
 #endif

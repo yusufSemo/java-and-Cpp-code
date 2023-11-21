@@ -1,7 +1,7 @@
-// Location.cpp
+
 #include "Location.h"
 
-// Constructor
+
 Location::Location(std::string filename, int line)
     : _filename(filename), _line(line) {}
 
